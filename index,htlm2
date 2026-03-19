@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leer en Verdien - Harry Potter Thema</title>
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    background-color: #f8f4e3;
+    color: #2c2c2c;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background-color: #5c3a21;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #7b4e27;
+    padding: 10px 0;
+  }
+  nav button {
+    background-color: #d4af37;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  nav button:hover {
+    background-color: #b88b2f;
+  }
+  section {
+    display: none;
+    padding: 20px;
+  }
+  section.active {
+    display: block;
+  }
+  h2 {
+    color: #5c3a21;
+  }
+  .task-list input {
+    margin-right: 10px;
+  }
+  .task-list button {
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Leer en Verdien - Harry Potter Thema</h1>
+</header>
+
+<nav>
+  <button onclick="showSection('tasks')">Taken</button>
+  <button onclick="showSection('calendar')">Kalender</button>
+  <button onclick="showSection('profile')">Profiel</button>
+  <button onclick="showSection('friends')">Vrienden</button>
+</nav>
+
+<section id="tasks" class="active">
+  <h2>Voeg je taken toe</h2>
+  <div class="task-list">
+    <input type="text" id="taskInput" placeholder="Nieuwe taak...">
+    <button onclick="addTask()">Toevoegen</button>
+    <ul id="taskItems"></ul>
+  </div>
+</section>
+
+<section id="calendar">
+  <h2>Kalender / Planning</h2>
+  <p>(Hier kun je taken zien per dag en tijd – placeholder)</p>
+</section>
+
+<section id="profile">
+  <h2>Profiel</h2>
+  <p>Naam: HarryFan123</p>
+  <p>Level: 5</p>
+  <p>Huis: Griffoendor</p>
+</section>
+
+<section id="friends">
+  <h2>Vergelijk met vrienden</h2>
+  <p>(Hier kun je zien wie welke level en huis heeft – placeholder)</p>
+</section>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+
+  function addTask() {
+    const input = document.getElementById('taskInput');
+    const taskText = input.value.trim();
+    if(taskText === '') return;
+    
+    const li = document.createElement('li');
+    li.textContent = taskText + " ⏰"; // hier kan je later minuten toevoegen
+    document.getElementById('taskItems').appendChild(li);
+    input.value = '';
+  }
+</script>
+
+</body>
+</html>
