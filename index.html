@@ -7,8 +7,8 @@
 
 <style>
 body {
-  font-family: Arial;
-  background: #0f172a;
+  font-family: Harry P;
+  background: https://t4.ftcdn.net/jpg/01/69/42/47/360_F_169424788_SOLVBiZ3mNlVAKbXznUEfN9c5qxTxA6F.jpg
   color: white;
   text-align: center;
 }
@@ -26,7 +26,7 @@ input, button {
 }
 
 button {
-  background: #22c55e;
+  background: #0f172a;
   color: white;
 }
 
@@ -70,7 +70,7 @@ function addTask() {
   const li = document.createElement("li");
   li.innerHTML = `
     ${text} (+10 XP)
-    <button onclick="completeTask(this)">✔️</button>
+    <button onclick="completeTask(this)">✅</button>
   `;
 
   document.getElementById("taskList").appendChild(li);
